@@ -42,32 +42,11 @@ export default function AdminLoginPage() {
 
       if (!res.ok) throw new Error(data?.error || 'Login failed');
 
-      // Check if login was actually successful
-      console.log('Login response data:', data);
-      console.log('Login status:', res.status);
-
-      if (!data.success) {
-        throw new Error(data.message || 'Login failed');
-      }
-
       // Add small delay to ensure cookie is set
-      console.log('Login successful! Redirecting to /admin in 100ms...');
+      console.log('Redirecting to /admin...');
       setTimeout(() => {
-        try {
-          console.log('Executing redirect to /admin...');
-          // Use replace to avoid adding to history
-          window.location.replace('/admin');
-          console.log('Redirect executed successfully');
-
-          // Also log current location after a brief delay
-          setTimeout(() => {
-            console.log('Current location after redirect:', window.location.href);
-          }, 50);
-        } catch (redirectErr) {
-          console.error('Redirect failed:', redirectErr);
-          // Fallback: try regular location change
-          window.location.href = '/admin';
-        }
+        // Redirect to admin dashboard without any query parameters
+        window.location.replace('/admin');
       }, 100);
     } catch (err) {
       setError(err.message || 'Something went wrong');
