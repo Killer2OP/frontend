@@ -26,13 +26,18 @@ export default function AdminLoginPage() {
         credentials: 'include'
       });
       const data = await res.json();
-      console.log('Response data:', data); // Add this line
+      console.log('Response data:', data); 
       console.log('Response status:', res.status);
       console.log('Response headers:', Object.fromEntries(res.headers.entries()));
-      console.log('Cookies after login:', document.cookie); // Debug cookies
+      console.log('Cookies after login:', document.cookie); 
       if (!res.ok) throw new Error(data?.error || 'Login failed');
-      // optional front-end hint
-      window.location.href = '/admin';
+
+      // Add small delay to ensure cookie is set
+      console.log('Redirecting to /admin...');
+      setTimeout(() => {
+        // Redirect to admin dashboard without any query parameters
+        window.location.replace('/admin');
+      }, 100);
     } catch (err) {
       setError(err.message || 'Something went wrong');
     } finally {
