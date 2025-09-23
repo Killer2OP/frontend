@@ -41,11 +41,11 @@ export function middleware(req) {
       allCookies: Object.keys(req.cookies.getAll())
     });
 
-    // For now, allow access to /admin even without token (temporary fix)
-    // TODO: Remove this after fixing cookie issues
     if (!adminToken) {
-      console.log('WARNING: Allowing admin access without token (temporary bypass)');
-      return NextResponse.next();
+      const url = req.nextUrl.clone();
+      url.pathname = '/admin/login';
+      // Don't add next parameter to avoid URL clutter
+      return NextResponse.redirect(url);
     }
 
     return NextResponse.next();
