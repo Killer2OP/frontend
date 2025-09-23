@@ -34,6 +34,7 @@ const iconMapCustomerCenter = {
 };
 
 function Footer() {
+
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>

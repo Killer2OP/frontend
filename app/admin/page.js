@@ -17,12 +17,25 @@ export default function AdminDashboard() {
   useEffect(() => {
     async function load() {
       try {
+        const token = localStorage.getItem('admin_token');
+        if (!token) {
+          window.location.href = '/admin/login';
+          return;
+        }
+
         const apiBase = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:4000';
-        const res = await fetch(`${apiBase}/api/admin/dashboard-stats`, { credentials: 'include' });
+        const res = await fetch(`${apiBase}/api/admin/dashboard-stats`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include'
+        });
         const data = await res.json();
         if (!res.ok) throw new Error(data?.error || 'Failed to load stats');
         setStats(data);
       } catch (e) {
+        console.error('Error loading dashboard:', e);
         setError(e.message);
       } finally {
         setLoading(false);

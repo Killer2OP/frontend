@@ -32,19 +32,26 @@ export function middleware(req) {
     if (pathname === '/admin/login' || pathname.startsWith('/admin/login/')) {
       return NextResponse.next();
     }
-    const adminToken = req.cookies.get('admin_token');
+
+    // Check for admin token in Authorization header or cookie
+    const authHeader = req.headers.get('authorization');
+    const adminToken = req.cookies.get('admin_token') || (authHeader && authHeader.replace('Bearer ', ''));
+
     console.log('Admin middleware check:', {
       pathname,
-      hasAdminToken: !!adminToken,
-      adminTokenValue: adminToken ? 'PRESENT' : 'MISSING',
+      hasAuthHeader: !!authHeader,
+      hasCookieToken: !!req.cookies.get('admin_token'),
+      authHeaderValue: authHeader ? 'PRESENT' : 'MISSING',
       allCookies: Object.keys(req.cookies.getAll())
     });
+
     if (!adminToken) {
       const url = req.nextUrl.clone();
       url.pathname = '/admin/login';
       url.searchParams.set('next', pathname);
       return NextResponse.redirect(url);
     }
+
     return NextResponse.next();
   }
 
