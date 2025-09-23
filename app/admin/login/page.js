@@ -26,22 +26,26 @@ export default function AdminLoginPage() {
         credentials: 'include'
       });
       const data = await res.json();
-      console.log('Response data:', data);
+      console.log('Response data:', data); 
       console.log('Response status:', res.status);
       console.log('Response headers:', Object.fromEntries(res.headers.entries()));
-      console.log('Cookies after login:', document.cookie);
-      if (!res.ok) throw new Error(data?.error || 'Login failed');
+      console.log('Cookies after login:', document.cookie); 
 
-      // Store token in localStorage for authentication
-      if (data.token) {
-        localStorage.setItem('admin_token', data.token);
-        localStorage.setItem('admin_user', JSON.stringify(data.user));
-        console.log('Token stored in localStorage');
+      // Test if we can access the cookie test endpoint
+      try {
+        const testRes = await fetch(`${apiBase}/api/cookie-test`, { credentials: 'include' });
+        const testData = await testRes.json();
+        console.log('Cookie test result:', testData);
+      } catch (testErr) {
+        console.log('Cookie test failed:', testErr);
       }
 
-      // Add small delay to ensure everything is set
+      if (!res.ok) throw new Error(data?.error || 'Login failed');
+
+      // Add small delay to ensure cookie is set
       console.log('Redirecting to /admin...');
       setTimeout(() => {
+        // Redirect to admin dashboard without any query parameters
         window.location.replace('/admin');
       }, 100);
     } catch (err) {
