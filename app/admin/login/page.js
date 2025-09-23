@@ -45,8 +45,15 @@ export default function AdminLoginPage() {
       // Add small delay to ensure cookie is set
       console.log('Redirecting to /admin...');
       setTimeout(() => {
-        // Redirect to admin dashboard without any query parameters
-        window.location.replace('/admin');
+        try {
+          // Redirect to admin dashboard without any query parameters
+          window.location.replace('/admin');
+          console.log('Redirect initiated successfully');
+        } catch (redirectErr) {
+          console.error('Redirect failed:', redirectErr);
+          // Fallback: try regular location change
+          window.location.href = '/admin';
+        }
       }, 100);
     } catch (err) {
       setError(err.message || 'Something went wrong');

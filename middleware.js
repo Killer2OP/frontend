@@ -38,15 +38,18 @@ export function middleware(req) {
       pathname,
       hasAdminToken: !!adminToken,
       adminTokenValue: adminToken ? 'PRESENT' : 'MISSING',
-      allCookies: Object.keys(req.cookies.getAll())
+      allCookies: Object.keys(req.cookies.getAll()),
+      timestamp: new Date().toISOString()
     });
 
     if (!adminToken) {
+      console.log('No admin token found, redirecting to login');
       const url = req.nextUrl.clone();
       url.pathname = '/admin/login';
       return NextResponse.redirect(url);
     }
 
+    console.log('Admin token found, allowing access to:', pathname);
     return NextResponse.next();
   }
 
