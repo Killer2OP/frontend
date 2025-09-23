@@ -36,20 +36,6 @@ export default function AdminDashboard() {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
-  async function logout() {
-    try {
-      const apiBase = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:4000';
-      await fetch(`${apiBase}/api/auth/admin-logout`, {
-        method: 'POST',
-        credentials: 'include'
-      });
-      // Redirect to login page
-      window.location.href = '/admin/login';
-    } catch (e) {
-      window.location.href = '/admin/login';
-    }
-  }
-
   return (
     <div style={{ maxWidth: 1200, margin: '0 auto' }}>
       <div style={{ marginBottom: 32 }}>
@@ -74,34 +60,6 @@ export default function AdminDashboard() {
           marginBottom: 24
         }}>{error}</div>
       )}
-
-      <div style={{
-        background: 'linear-gradient(135deg, #667eea, #764ba2)',
-        color: 'white',
-        padding: '32px',
-        borderRadius: 16,
-        marginBottom: 32,
-        textAlign: 'center'
-      }}>
-        <h2 style={{ fontSize: 24, marginBottom: 16 }}>🎉 Welcome to Admin Panel!</h2>
-        <p style={{ fontSize: 16, marginBottom: 24 }}>
-          You have successfully logged in as an administrator.
-        </p>
-        <button
-          onClick={logout}
-          style={{
-            background: 'rgba(255, 255, 255, 0.2)',
-            color: 'white',
-            border: '1px solid rgba(255, 255, 255, 0.3)',
-            padding: '12px 24px',
-            borderRadius: 8,
-            cursor: 'pointer',
-            fontSize: 14
-          }}
-        >
-          🚪 Logout
-        </button>
-      </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginBottom: 32 }}>
         <StatCard
