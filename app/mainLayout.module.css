@@ -1,0 +1,82 @@
+.wrapper {
+    padding: 30px 0 20px;
+    background: var(--gradient-bg);
+    min-height: 41.5vh;
+}
+
+.sectionHeader {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.InternalPageWrapper {
+    padding: 30px 1rem;
+    background: white;
+}
+
+.sectionTitle , .internalPagesTitle {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--color-primary-orange);
+    font-weight: 700;
+}
+
+.divider, .internalPagesDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px auto;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.divider::before, .divider::after, .internalPagesDivider::before, .internalPagesDivider::after {
+    content: "";
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d1a054, transparent);
+    flex: 1;
+}
+
+.dividerIcon {
+    margin: 0 15px;
+    color: #d1a054;
+    font-size: 24px;
+}
+
+.description {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #444;
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+.internalPagesHeadingContainer {
+    margin: 10px auto 20px;
+}
+
+
+@media (max-width: 768px) {
+
+    .sectionTitle, .internalPagesTitle {
+        font-size: 2.25rem;
+    }
+
+    .description {
+        font-size: 1.125rem;
+    }
+}
+
+
+@media (max-width: 550px) {
+    
+    .sectionTitle, .internalPagesTitle {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}

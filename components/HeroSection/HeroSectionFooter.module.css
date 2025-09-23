@@ -1,0 +1,47 @@
+.footer {
+    position: absolute;
+    bottom: 1rem;
+    /* 4 */
+    width: 100%;
+    padding: 0 1.5rem;
+    /* px-6 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 0.75rem;
+    /* text-xs */
+}
+
+@media (min-width: 640px) {
+
+    /* sm */
+    .footer {
+        bottom: 1.5rem;
+        /* bottom-6 */
+        font-size: 0.875rem;
+        /* text-sm */
+    }
+}
+
+@media (min-width: 768px) {
+
+    /* md */
+    .footer {
+        font-size: 1rem;
+        /* text-base */
+    }
+}
+
+.location {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 0.5rem;
+}
+
+.right {
+    text-align: right;
+}

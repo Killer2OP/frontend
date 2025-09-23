@@ -1,0 +1,27 @@
+{
+  "name": "matrimony",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.16",
+    "lucide-react": "^0.543.0",
+    "next": "15.5.2",
+    "react": "19.1.0",
+    "react-alice-carousel": "^2.9.1",
+    "react-countup": "^6.5.3",
+    "react-dom": "19.1.0",
+    "react-icons": "^5.5.0",
+    "react-responsive": "^10.0.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.2"
+  }
+}
