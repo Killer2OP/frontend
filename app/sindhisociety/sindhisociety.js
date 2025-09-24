@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styles from "./sindhisociety.module.css";
 import { Wrapper, SectionHeader } from "../mainLayout";
+import sindhiSocietyImage from "../assets/sindhiSociety.png";
+import Image from "next/image";
 
 export default function SindhiSociety() {
 
@@ -59,7 +61,7 @@ export default function SindhiSociety() {
     return (
 
         <div className={styles.relativeClass}>
-            
+
             <Wrapper>
 
                 <SectionHeader
@@ -68,17 +70,26 @@ export default function SindhiSociety() {
                 />
 
                 <div className={styles.toggleWrapper}>
-                        <button
-                            className={styles.toggleBtn}
-                            onClick={() => setLanguage(language === "en" ? "hi" : "en")}
-                        >
-                            {language === "en" ? "हिन्दी" : "English"}
-                        </button>
-                    </div>
+                    <button
+                        className={styles.toggleBtn}
+                        onClick={() => setLanguage(language === "en" ? "hi" : "en")}
+                    >
+                        {language === "en" ? "हिन्दी" : "English"}
+                    </button>
+                </div>
 
 
                 <div className={styles.container}>
 
+
+                    <div className={styles.imageWrapper}>
+                        <Image
+                            src={sindhiSocietyImage}
+                            alt="Sindhi Society"
+                            style={{ objectFit: "cover" }}
+                        />
+                    </div>
+                   
                     {/* Marriage Bureau Section */}
                     <section className={styles.section}>
                         <h2>{content[language].bureauTitle}</h2>
@@ -107,6 +118,8 @@ export default function SindhiSociety() {
                     </section>
 
                 </div>
+
+
             </Wrapper>
         </div>
     );
