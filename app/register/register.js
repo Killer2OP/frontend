@@ -296,7 +296,7 @@ export default function RegisterForm() {
                         });
                     }, 1000);
 
-                    setSuccess('OTP sent to your mobile number and email. Please check and enter the OTP.');
+                    setSuccess('OTP sent to your email address. Please check and enter the OTP.');
                 } catch (err) {
                     setError(err.message || 'Failed to send OTP');
                     return;
