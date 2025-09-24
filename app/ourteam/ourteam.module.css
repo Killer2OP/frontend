@@ -84,38 +84,3 @@
     border-radius: 6px;
     text-align: center;
 }
-
-
-.list {
-    columns: 4;
-    column-gap: 25px;
-    margin-bottom: 40px;
-    padding: 0;
-    list-style: none;
-}
-
-.list li {
-    margin-bottom: 8px;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #333;
-}
-
-/* Responsive tweaks */
-@media (max-width: 1024px) {
-    .list {
-        columns: 3;
-    }
-}
-
-@media (max-width: 768px) {
-    .list {
-        columns: 2;
-    }
-}
-
-@media (max-width: 480px) {
-    .list {
-        columns: 1;
-    }
-}

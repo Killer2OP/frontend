@@ -76,15 +76,32 @@ export default function OurTeam() {
     const renderTeamSection = (title, members) => (
         <section>
             <h2 className={styles.subHeading}>{title}</h2>
-            <ul className={styles.list}>
+            <div className={styles.grid}>
                 {
-                    members.map((name, index) => (
-                        <li key={index}>{name}</li>
+                    Array.isArray(members) ? members.map((name, idx) => (
+                        <div key={idx} className={styles.card}>
+                            <ul className={styles.members}>
+                                <li>{name}</li>
+                            </ul>
+                        </div>
+                    ))
+                    : 
+                    Object.entries(members).map(([day, names]) => (
+                        <div key={day} className={styles.card}>
+                            <h3 className={styles.day}>{day}</h3>
+                            <ul className={styles.members}>
+                                {names.map((n, idx) => (
+                                    <li key={idx}>{n}</li>
+                                ))}
+                            </ul>
+                        </div>
                     ))
                 }
-            </ul>
+            </div>
         </section>
     );
+
+
 
     return (
         <div className={styles.relativeClass}>
@@ -108,34 +125,16 @@ export default function OurTeam() {
                     </button>
                 </div>
 
+                {/* <div className={styles.container}> */}
+
                 <div className={styles.container}>
-
-                    {/* Panch Sunvai Team */}
-                    <section>
-                        <h2 className={styles.subHeading}>
-                            {language === "en" ? "Panch Sunvai Team" : "पंच सुनवाई टीम"}
-                        </h2>
-                        <div className={styles.grid}>
-                            {Object.entries(panchSunvaiTeam[language]).map(([day, members]) => (
-                                <div key={day} className={styles.card}>
-                                    <h3 className={styles.day}>{day}</h3>
-                                    <ul className={styles.members}>
-                                        {members.map((name, idx) => (
-                                            <li key={idx}>{name}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
+                    {renderTeamSection(language === "en" ? "Panch Sunvai Team" : "पंच सुनवाई टीम", panchSunvaiTeam[language])}
                     {renderTeamSection(language === "en" ? "Vishesh Team" : "विशेष टीम", visheshTeam[language])}
-
                     {renderTeamSection(language === "en" ? "Jijnas Team" : "जिज्ञास टीम", jijnasTeam[language])}
-
                     {renderTeamSection(language === "en" ? "Bureau Team" : "ब्यूरो टीम", bureauTeam[language])}
-
                 </div>
+
+                {/* </div> */}
             </Wrapper>
         </div>
     );
