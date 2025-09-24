@@ -26,12 +26,12 @@ const iconMap = {
     "Contact": <Phone size={16} className={styles.iconInline} />
 };
 
-const iconMapCustomerCenter = {
-    "Customer Video": <Video size={16} className={styles.iconInline} />,
-    "Customer Photos": <Star size={16} className={styles.iconInline} />,
-    "Reviews": <ThumbsUp size={16} className={styles.iconInline} />,
-    "Awards & Certifications": <Award size={16} className={styles.iconInline} />
-};
+// const iconMapCustomerCenter = {
+//     "Customer Video": <Video size={16} className={styles.iconInline} />,
+//     "Customer Photos": <Star size={16} className={styles.iconInline} />,
+//     "Reviews": <ThumbsUp size={16} className={styles.iconInline} />,
+//     "Awards & Certifications": <Award size={16} className={styles.iconInline} />
+// };
 
 function Footer() {
 
@@ -45,7 +45,7 @@ function Footer() {
                         <p className={styles.text}>
                             A trusted platform for Sindhi families to connect, interact, and explore matrimonial opportunities in a safe and welcoming environment.
                         </p>
-                        <div className={styles.socialIcons}>
+                        {/* <div className={styles.socialIcons}>
                             <Link href="/" aria-label="Facebook" className={styles.icon}>
                                 <Facebook size={20} />
                             </Link>
@@ -55,7 +55,7 @@ function Footer() {
                             <Link href="/" aria-label="Instagram" className={styles.icon}>
                                 <Instagram size={20} />
                             </Link>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Quick Links */}
@@ -70,7 +70,7 @@ function Footer() {
                     </div>
 
                     {/* Customer Center */}
-                    <div className={styles.section}>
+                    {/* <div className={styles.section}>
                         <h4 className={styles.title}>Customer Center</h4>
                         <ul className={styles.linkList}>
                             <li><Link href="/videos" className={styles.link}>{iconMapCustomerCenter["Customer Video"]} Customer Video</Link></li>
@@ -78,7 +78,7 @@ function Footer() {
                             <li><Link href="/reviews" className={styles.link}>{iconMapCustomerCenter["Reviews"]} Reviews</Link></li>
                             <li><Link href="/awards" className={styles.link}>{iconMapCustomerCenter["Awards & Certifications"]} Awards & Certifications</Link></li>
                         </ul>
-                    </div>
+                    </div> */}
 
                     {/* Contact */}
                     <div className={styles.section}>
