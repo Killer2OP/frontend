@@ -13,7 +13,7 @@ export default function OurTeam() {
             Tuesday: ["Reshma Bhatia", "Priya Rohida", "Prem Sawalni", "Hemant Ahuja"],
             Wednesday: ["Chanda Khatri", "Radha Tirthani", "Nikhil Basantani", "Jagdish Ferwani"],
             Thursday: ["Kiran Chawla", "Puran Behrani", "Lalit Belani", "Manohar Motwani"],
-            Friday: ["Amla Sharma", "Kanhaiyalal Manghani", "Narendra Ahuja", "Chhavikant Ramnani"]
+            Friday: ["Amla Sharma", "Kanhaiyalal Manghani", "Narendra Ahuja", "Chavikant Ramnani"]
 
         },
         hi: {
